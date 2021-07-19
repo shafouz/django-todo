@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo app</title>
+  </head>
+  <body>
+    <div>
+      <h1><a href="/">Todo app</a></h1>
+    </div>
+
+    <div>
+      <div class="flash-message">
+        {% if messages %}
+          <ul class='messages'>
+            {% for message in messages %}
+              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                {{ message }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+  <form action="/new" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+  </form>
+
+  {% for task in tasks %}
+    {{ task.id }}
+    {{ task.task_text }}
+    <a href="{% url 'todo:task' task.id %}">show</a>
+    <a href="{% url 'todo:delete' task.id %}">delete</a>
+    <a href="{% url 'todo:edit' task.id %}">edit</a>
+    <hr>
+  {% endfor %}
+{% endblock %}

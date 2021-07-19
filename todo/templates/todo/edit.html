@@ -1,0 +1,8 @@
+<form action="{% url 'todo:edit' id %}" method="POST">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Submit">
+</form>
+
+<a href="{% url 'todo:task' id %}">show</a>
+<a href="{% url 'todo:index' %}">Back</a>

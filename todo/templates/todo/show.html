@@ -1,0 +1,6 @@
+{{ task.id }}
+{{ task.task_text }}
+{{ task.created_at }}
+
+<a href="{% url 'todo:edit' task.id %}">edit</a>
+<a href="{% url 'todo:index' %}">Back</a>
